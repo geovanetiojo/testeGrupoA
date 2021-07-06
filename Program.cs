@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace front_ensinosup
+namespace front_ensinosupApi
 {
     public class Program
     {
