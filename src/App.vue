@@ -105,8 +105,63 @@
     <v-content>
 
       <!-- Display view pages here based on route -->
+      <v-container>
+    
+      <v-row>
+        <v-col
+          cols=3  
+            hight=5000
+        >
+          <v-card
+            height="600"
+            
+          >
+            <v-card-title class="text-h5">
+              Módulo Acadêmico
+            </v-card-title>
+            
+            <v-card-actions>
+              
+                <router-link
+                  :to="`/list-matricula`"
+                  tag="v-btn"
+                  style="cursor: pointer"
+                >
+                Alunos</router-link>
+              
+            </v-card-actions> 
+            <v-card-actions>
+              
+                <router-link
+                  :to="`/list-disciplina`"
+                  tag="v-btn"
+                  style="cursor: pointer"
+                >
+                Disciplinas</router-link>
+              
+            </v-card-actions> 
+          </v-card>
+        </v-col>
+        <v-col
+          cols=9
+        >
+          <v-card
+            height="600"
+          >
+            <v-card-title class="text-h5">
+              
+            </v-card-title>
+            <router-view></router-view>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row>
+        
+      </v-row>
+    
+    </v-container>
 
-      <router-view></router-view>
+      
 
     </v-content>
 

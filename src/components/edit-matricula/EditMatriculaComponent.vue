@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <h1>Edit Matricula</h1>            
+        <titulo texto="Editar Matrícula"  />             
         <v-row>
             <v-col
                 cols=6
@@ -8,17 +8,17 @@
                 <v-form class="text-center">
 
                     <v-text-field
-                        v-model="ra"
+                        v-model=this.ra_param
                         outline
                         label="RA"
                         :rules="raRules"
                         placeholder="Informe o Registro Acadêmico"
                         readonly
-                        required
+                        required                        
                     ></v-text-field>
 
                     <v-text-field
-                        v-model="cpf"
+                        v-model=ra
                         outline
                         label="CPF"
                         :rules="cpfRules"
@@ -28,7 +28,7 @@
                     ></v-text-field>
 
                     <v-text-field
-                        v-model="nome"
+                        v-model=nome
                         outline
                         label="Nome"                        
                         :rules="nomeRules"
@@ -58,7 +58,8 @@
                     <v-btn
                         round
                         class="justify-space-between"
-                        color="error"                                                 
+                        color="error"       
+                        to="/list-matricula"                                           
                     >
                         Cancelar
                     </v-btn>
@@ -70,18 +71,20 @@
 </template>
 
 <script>
+import Titulo from "../_share/Titulo";
+
     export default {
         components: {
-            //name: 'CreateMatriculaComponent',
+            
+            Titulo
         },
         data ()  {
             return {
-                matricula: {
-                    ra: '',
-                    cpf: '',
-                    nome: '',
-                    email: '',
-                },
+                alunos: [{ra: 1, nome: 'Jão', cpf:'123123123'}
+                         ,{ra: 2, nome: 'José', cpf:'111111111'}
+                         ,{ra: 3, nome: 'Maria', cpf:'22222222'}
+                        ],
+                ra_param: this.$route.params.ra,
                 raRules: [
                     value => !!value || 'O RA é obrigatório',
                     //value => (value && value.length >= 3) || 'O RA deve ter no mínimo 3 caracteres',
@@ -101,6 +104,14 @@
                     value => (value && value.length == 14) || 'A CPF deve ter no 14 caracteres com . e -'
                 ]
             };
-    },
+        },
+        created() {
+            this.carregarAluno();
+        },
+        methods: {
+            carregarAluno() {
+                
+            }
+        },
     };
 </script>

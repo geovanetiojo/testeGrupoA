@@ -1,6 +1,7 @@
 <template>
     <v-container>
-        <h1>Create new Matricula</h1>            
+        
+        <titulo texto="Criar nova matricula"/>             
         <v-row>
             <v-col
                 cols=6
@@ -58,7 +59,8 @@
                     <v-btn
                         round
                         class="justify-space-between"
-                        color="error"                                                 
+                        color="error"     
+                        to="/list-matricula"                                               
                     >
                         Cancelar
                     </v-btn>
@@ -71,8 +73,11 @@
 </template>
 
 <script>
+import Titulo from "../_share/Titulo";
+
 export default {
     components: {
+        Titulo
         //name: 'CreateMatriculaComponent',
     },
     data ()  {

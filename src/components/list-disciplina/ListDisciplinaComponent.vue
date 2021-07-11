@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <titulo texto="Lista de Alunos" />
+    <titulo texto="Lista de Disciplinas" />
     <v-row>
       <v-col cols="6">
         <v-text-field v-model="search" label="" type="text"> </v-text-field>
@@ -35,22 +35,22 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th class="text-left">RA</th>
-                <th class="text-left">NOME</th>
-                <th class="text-left">CPF</th>
-                <th class="text-left">AÇÕES</th>
+                <th class="text-left">ID</th>
+                <th class="text-left">NOME</th>       
+                <th class="text-left">CURSO</th>
+                <th class="text-left">AÇÕES</th>                         
               </tr>
             </thead>
-            <tbody v-if="alunos.length">
-              <tr v-for="(aluno, index) in alunos" :key="index">
-                <td>{{aluno.ra}}</td>
-                <td>{{aluno.nome}}</td>
-                <td>{{aluno.cpf}}</td>
+            <tbody v-if="disciplinas.length">
+              <tr v-for="(disciplina, index) in disciplinas" :key="index">
+                <td>{{disciplina.id}}</td>
+                <td>{{disciplina.nome}}</td>
+                <td>{{disciplina.curso}}</td>
                 <td><v-btn
                       color="yellow"
                       class="justify-space-between"
                       @click="register = 'loading'"
-                      :to="`/edit-matricula/${aluno.ra}`"
+                      :to="`/edit-matricula/${disciplina.id}`"
                       
                     >
                       Editar
@@ -58,7 +58,7 @@
                     <v-btn
                       color="red"
                       class="justify-space-between"
-                      @click="remover(aluno)"
+                      @click="remover(disciplina)"
                       
                     >
                       Excluir
@@ -69,7 +69,7 @@
             <tfoot v-else>
                   <tr>
                     <td colspan="3" style="text-align: center">
-                      <h5>Nenhum Aluno Encontrado</h5>
+                      <h5>Nenhuma Disciplina Encontrada</h5>
                     </td>
                   </tr>
                 </tfoot>
@@ -95,9 +95,9 @@ export default {
       loading2: false,
       loading3: false,
       loading4: false,
-      alunos: [{ra: 1, nome: 'Jão', cpf:'123123123'}
-               ,{ra: 2, nome: 'José', cpf:'111111111'}
-               ,{ra: 3, nome: 'Maria', cpf:'22222222'}
+      disciplinas: [{id: 1, nome: 'Calculo I', curso:'Engenharia'}
+                    ,{id: 2, nome: 'Estrutura de Dados', curso:'Ciências da Computação'}
+                    ,{id: 3, nome: 'Anatomia', curso:'Medicina'}
               ]
     };
   },
@@ -113,9 +113,9 @@ export default {
   },
   props: {},
   methods: {
-    remover(aluno) {
-      let indice = this.alunos.indexOf(aluno);
-      this.alunos.splice(indice,1);
+    remover(disciplina) {
+      let indice = this.disciplinas.indexOf(disciplina);
+      this.disciplinas.splice(indice,1);
       // this.$http.delete(`http://localhost:5000/api/aluno/${aluno.id}`).then(() => {
       //   let indice = this.alunos.indexOf(aluno);
       //   this.alunos.splice(indice, 1);

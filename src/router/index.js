@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Home'
+//import About from '../views/About' //importado de outra maneira
+import ListMatriculaComponent from '../components/list-matricula/ListMatriculaComponent'
+import CreateMatriculaComponent from '../components/create-matricula/CreateMatriculaComponent'
+import EditMatriculaComponent from '../components/edit-matricula/EditMatriculaComponent'
+import ListDisciplinaComponent from '../components/list-disciplina/ListDisciplinaComponent'
 
 Vue.use(VueRouter)
 
@@ -21,17 +26,22 @@ const routes = [
   {
     path: '/list-matricula',
     name: 'List Matricula',
-    component: () => import('../components/list-matricula/ListMatriculaComponent')
+    component: ListMatriculaComponent
   },
   {
     path: '/create-matricula',
     name: 'Create Matricula',
-    component: () => import('../components/create-matricula/CreateMatriculaComponent')
+    component: CreateMatriculaComponent
   },
   {
     path: '/edit-matricula/:ra',
     name: 'Edit Matricula',
-    component: () => import('../components/edit-matricula/EditMatriculaComponent')
+    component: EditMatriculaComponent
+  },
+  {
+    path: '/list-disciplina',
+    name: 'List Disciplina',
+    component: ListDisciplinaComponent
   },
 ]
 
