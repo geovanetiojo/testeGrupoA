@@ -8,7 +8,32 @@ namespace ensinosup_api.Controllers
     {
         public AlunoController()
         {
-            
+
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok();
+        }
+        [HttpGet("{AlunoRA}")]
+        public IActionResult Get(int AlunoRA)
+        {
+            return Ok();
+        }
+        [HttpPost]
+        public IActionResult Post()
+        {
+            return Ok();
+        }
+        [HttpPut("{AlunoRA}")]
+        public IActionResult Put(int AlunoRA)
+        {
+            return Ok();
+        }
+        [HttpDelete("{AlunoRA}")]
+        public IActionResult Delete(int AlunoRA)
+        {
+            return Ok();
         }
     }
 }
