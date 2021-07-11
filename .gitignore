@@ -23,5 +23,8 @@ pnpm-debug.log*
 *.sw?
 
 # folders dotnet core
+front-ensinosup/ensinosup_api/bin
+front-ensinosup/ensinosup_api/obj
 bin
 obj
+
